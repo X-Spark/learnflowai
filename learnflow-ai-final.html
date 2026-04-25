@@ -1,1022 +1,2194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LearnFlow AI – LMS Consulting, AI-Powered Learning & Implementation Experts</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LearnAI For LMS | SaaS-Grade LMS Implementation, Migration, and Learning Analytics</title>
+  <meta
+    name="description"
+    content="LearnAI For LMS helps teams launch SaaS-grade learning operations with LMS implementation, migration, customization, AI workflows, analytics, and enablement for Docebo, Canvas, Moodle, and enterprise learning teams."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  :root {
-    --navy: #0B1B35;
-    --navy-mid: #162848;
-    --accent: #2563EB;
-    --accent-dark: #1d4ed8;
-    --accent-light: #DBEAFE;
-    --accent2: #0EA5E9;
-    --gold: #F59E0B;
-    --white: #FFFFFF;
-    --off-white: #F8FAFF;
-    --text-muted: #64748B;
-    --border: rgba(37,99,235,0.12);
-    --card-bg: rgba(255,255,255,0.97);
-    --radius: 16px;
-  }
+    :root {
+      --primary-bg: #0F172A;
+      --secondary-bg: #162033;
+      --card-bg: #111827;
+      --elevated-bg: #1B263B;
+      --primary-blue: #3B82F6;
+      --secondary-purple: #6366F1;
+      --accent-cyan: #F59E0B;
+      --accent-green: #10B981;
+      --text-white: #FFFFFF;
+      --text-body: #D9E3F2;
+      --text-muted: #9AA9BD;
+      --border-color: rgba(203, 213, 225, 0.16);
+      --gradient: linear-gradient(135deg, #2563EB 0%, #4F46E5 58%, #7C3AED 100%);
+      --hero-gradient: linear-gradient(135deg, rgba(15, 23, 42, 0.99) 0%, rgba(23, 37, 61, 0.98) 50%, rgba(30, 41, 59, 0.98) 100%);
+      --panel-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.022));
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+      --shadow-sm: 0 8px 22px rgba(2, 6, 23, 0.18);
+      --shadow-md: 0 16px 34px rgba(2, 6, 23, 0.24);
+      --shadow-lg: 0 28px 70px rgba(2, 6, 23, 0.38);
+    }
 
-  html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--off-white);
-    color: var(--navy);
-    line-height: 1.6;
-  }
+    body {
+      font-family: "Inter", sans-serif;
+      color: var(--text-body);
+      background:
+        radial-gradient(circle at 16% 0%, rgba(59, 130, 246, 0.18), transparent 31rem),
+        radial-gradient(circle at 84% 8%, rgba(245, 158, 11, 0.09), transparent 28rem),
+        linear-gradient(180deg, #08111F 0%, var(--primary-bg) 42%, #0B1220 100%);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
 
-  /* ─── NAV ─── */
-  nav {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(11,27,53,0.97);
-    backdrop-filter: blur(12px);
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1rem 2.5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-  .nav-logo {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800; font-size: 1.1rem;
-    color: var(--white); letter-spacing: -0.5px;
-    display: flex; align-items: center; gap: 8px;
-    text-decoration: none;
-  }
-  .nav-logo .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent2); display: inline-block; }
-  nav ul { list-style: none; display: flex; gap: 2rem; }
-  nav ul a {
-    color: rgba(255,255,255,0.7); text-decoration: none;
-    font-size: 0.875rem; font-weight: 500; letter-spacing: 0.2px;
-    transition: color 0.2s;
-  }
-  nav ul a:hover { color: var(--white); }
-  .nav-cta {
-    background: var(--accent); color: var(--white) !important;
-    padding: 0.45rem 1.1rem; border-radius: 8px;
-    font-weight: 600 !important; transition: background 0.2s !important;
-  }
-  .nav-cta:hover { background: var(--accent-dark) !important; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-  /* ─── HERO ─── */
-  .hero {
-    background: linear-gradient(135deg, var(--navy) 0%, #1E3A5F 60%, #0F2C52 100%);
-    color: var(--white);
-    padding: 5.5rem 2.5rem 5rem;
-    text-align: center;
-    position: relative; overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse at 30% 50%, rgba(37,99,235,0.18) 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 20%, rgba(14,165,233,0.12) 0%, transparent 50%);
-    pointer-events: none;
-  }
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: rgba(37,99,235,0.25); border: 1px solid rgba(37,99,235,0.4);
-    color: #93C5FD; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.8px; text-transform: uppercase;
-    padding: 0.35rem 1rem; border-radius: 100px; margin-bottom: 1.5rem;
-    position: relative;
-  }
-  .hero h1 {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(2.2rem, 5vw, 3.5rem);
-    font-weight: 800; line-height: 1.1;
-    letter-spacing: -1.5px; max-width: 800px; margin: 0 auto 1.25rem;
-    position: relative;
-  }
-  .hero h1 em { font-style: normal; color: #60A5FA; }
-  .hero p {
-    font-size: 1.1rem; color: rgba(255,255,255,0.72);
-    max-width: 580px; margin: 0 auto 2.5rem;
-    font-weight: 300; position: relative;
-  }
-  .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; }
-  .btn-primary {
-    background: var(--accent); color: var(--white);
-    padding: 0.85rem 2rem; border-radius: 10px;
-    font-weight: 600; font-size: 0.95rem;
-    text-decoration: none; transition: transform 0.2s, background 0.2s;
-    display: inline-block;
-  }
-  .btn-primary:hover { background: var(--accent-dark); transform: translateY(-2px); }
-  .btn-outline {
-    background: transparent; color: var(--white);
-    border: 1.5px solid rgba(255,255,255,0.3);
-    padding: 0.85rem 2rem; border-radius: 10px;
-    font-weight: 500; font-size: 0.95rem;
-    text-decoration: none; transition: border-color 0.2s, transform 0.2s;
-    display: inline-block;
-  }
-  .btn-outline:hover { border-color: rgba(255,255,255,0.7); transform: translateY(-2px); }
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-  /* ─── STATS ─── */
-  .stats-bar {
-    background: var(--white);
-    border-bottom: 1px solid var(--border);
-    display: flex; justify-content: center; flex-wrap: wrap;
-  }
-  .stat-item {
-    padding: 1.4rem 3rem;
-    border-right: 1px solid var(--border);
-    text-align: center;
-  }
-  .stat-item:last-child { border-right: none; }
-  .stat-num {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.6rem; font-weight: 700; color: var(--navy);
-    display: block;
-  }
-  .stat-label { font-size: 0.8rem; color: var(--text-muted); font-weight: 500; }
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
 
-  /* ─── GENERIC SECTION ─── */
-  section { padding: 5rem 2.5rem; }
-  .section-tag {
-    display: inline-block;
-    background: var(--accent-light); color: var(--accent);
-    font-size: 0.75rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
-    padding: 0.3rem 0.9rem; border-radius: 100px; margin-bottom: 1rem;
-  }
-  .section-title {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(1.7rem, 3vw, 2.4rem);
-    font-weight: 700; line-height: 1.2; letter-spacing: -0.8px;
-    color: var(--navy); max-width: 640px;
-  }
-  .section-sub {
-    color: var(--text-muted); font-size: 1rem;
-    max-width: 560px; margin-top: 0.75rem; font-weight: 300;
-  }
+    .container {
+      width: min(1200px, calc(100% - 2.2rem));
+      margin: 0 auto;
+    }
 
-  /* ─── PLATFORMS ─── */
-  .platforms { background: var(--off-white); }
-  .platforms-header { text-align: center; margin-bottom: 3.5rem; }
-  .platforms-header .section-title,
-  .platforms-header .section-sub { margin-left: auto; margin-right: auto; }
-  .platforms-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem; max-width: 1100px; margin: 0 auto;
-  }
-  .platform-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
-    transition: transform 0.25s, box-shadow 0.25s;
-    display: flex; flex-direction: column;
-  }
-  .platform-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 60px rgba(37,99,235,0.12);
-  }
-  .card-header {
-    padding: 2rem 2rem 1.5rem;
-    border-bottom: 1px solid var(--border);
-    position: relative;
-  }
-  .platform-logo {
-    width: 52px; height: 52px; border-radius: 14px;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem;
-    margin-bottom: 1rem;
-  }
-  .logo-docebo { background: #E8F5E9; color: #2E7D32; }
-  .logo-canvas { background: #FFF3E0; color: #E65100; }
-  .logo-moodle { background: #E3F2FD; color: #1565C0; }
-  .platform-name {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.35rem; font-weight: 700; color: var(--navy); margin-bottom: 0.35rem;
-  }
-  .platform-tagline { font-size: 0.875rem; color: var(--text-muted); }
-  .platform-badge {
-    position: absolute; top: 1.5rem; right: 1.5rem;
-    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.5px;
-    padding: 0.25rem 0.7rem; border-radius: 100px;
-  }
-  .badge-enterprise { background: #EDE9FE; color: #7C3AED; }
-  .badge-academic   { background: #FEF3C7; color: #D97706; }
-  .badge-open       { background: #DCFCE7; color: #166534; }
-  .card-body { padding: 1.5rem 2rem; flex: 1; }
-  .services-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
-  .services-list li {
-    display: flex; align-items: flex-start; gap: 0.6rem;
-    font-size: 0.9rem; color: #334155;
-  }
-  .check {
-    width: 18px; height: 18px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0; margin-top: 1px; font-size: 10px;
-  }
-  .check-docebo { background: #E8F5E9; color: #2E7D32; }
-  .check-canvas  { background: #FFF3E0; color: #E65100; }
-  .check-moodle  { background: #E3F2FD; color: #1565C0; }
-  .card-footer {
-    padding: 1.25rem 2rem;
-    border-top: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .card-price { font-size: 0.8rem; color: var(--text-muted); }
-  .card-cta {
-    font-size: 0.85rem; font-weight: 600;
-    text-decoration: none; display: flex; align-items: center; gap: 4px;
-    transition: gap 0.2s;
-  }
-  .card-cta:hover { gap: 8px; }
-  .cta-docebo { color: #2E7D32; }
-  .cta-canvas  { color: #E65100; }
-  .cta-moodle  { color: #1565C0; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(245, 158, 11, 0.1);
+      color: #FDE68A;
+      border: 1px solid rgba(245, 158, 11, 0.26);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+    }
 
-  /* ─── PRICING CATALOG ─── */
-  .pricing { background: var(--white); }
-  .pricing-header { text-align: center; margin-bottom: 3.5rem; }
-  .pricing-header .section-title,
-  .pricing-header .section-sub { margin-left: auto; margin-right: auto; }
+    .icon,
+    [data-lucide] {
+      width: 1.05em;
+      height: 1.05em;
+      stroke-width: 2.2;
+      flex-shrink: 0;
+    }
 
-  .pricing-tabs {
-    display: flex; justify-content: center; gap: 0.5rem;
-    margin-bottom: 3rem; flex-wrap: wrap;
-  }
-  .tab-btn {
-    padding: 0.55rem 1.4rem; border-radius: 100px;
-    border: 1.5px solid var(--border);
-    background: transparent; color: var(--text-muted);
-    font-family: 'DM Sans', sans-serif; font-size: 0.875rem; font-weight: 500;
-    cursor: pointer; transition: all 0.2s;
-  }
-  .tab-btn.active, .tab-btn:hover {
-    background: var(--accent); border-color: var(--accent);
-    color: var(--white);
-  }
+    .icon-badge {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius-lg);
+      background: rgba(59, 130, 246, 0.12);
+      color: #BFDBFE;
+      border: 1px solid rgba(59, 130, 246, 0.22);
+      margin-bottom: 1rem;
+    }
 
-  .catalog-panel { display: none; max-width: 1060px; margin: 0 auto; }
-  .catalog-panel.active { display: block; }
+    .icon-badge [data-lucide] {
+      width: 22px;
+      height: 22px;
+    }
 
-  .catalog-table {
-    width: 100%; border-collapse: collapse;
-    border-radius: var(--radius); overflow: hidden;
-    border: 1px solid var(--border);
-  }
-  .catalog-table thead tr {
-    background: var(--navy); color: var(--white);
-  }
-  .catalog-table thead th {
-    padding: 1rem 1.25rem; text-align: left;
-    font-family: 'Syne', sans-serif; font-size: 0.85rem;
-    font-weight: 600; letter-spacing: 0.3px;
-  }
-  .catalog-table thead th:last-child { text-align: right; }
-  .catalog-table tbody tr {
-    border-bottom: 1px solid #F1F5F9;
-    transition: background 0.15s;
-  }
-  .catalog-table tbody tr:last-child { border-bottom: none; }
-  .catalog-table tbody tr:hover { background: #F8FAFF; }
-  .catalog-table td {
-    padding: 1rem 1.25rem; font-size: 0.9rem; color: #334155;
-    vertical-align: top;
-  }
-  .catalog-table td:last-child { text-align: right; }
-  .service-cat {
-    display: inline-block;
-    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;
-    padding: 0.2rem 0.65rem; border-radius: 100px; margin-bottom: 0.3rem;
-  }
-  .cat-impl   { background: #EDE9FE; color: #7C3AED; }
-  .cat-custom { background: #FEF3C7; color: #D97706; }
-  .cat-mig    { background: #DCFCE7; color: #166534; }
-  .cat-int    { background: #E0F2FE; color: #0369A1; }
-  .cat-supp   { background: #FCE7F3; color: #9D174D; }
-  .cat-train  { background: #FEF3C7; color: #92400E; }
-  .service-name { font-weight: 600; color: var(--navy); font-size: 0.9rem; display: block; }
-  .service-desc { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem; line-height: 1.5; }
-  .price-tag {
-    font-family: 'Syne', sans-serif;
-    font-size: 1rem; font-weight: 700; color: var(--navy);
-    display: block;
-  }
-  .price-unit { font-size: 0.75rem; color: var(--text-muted); font-weight: 400; }
-  .price-custom {
-    font-family: 'Syne', sans-serif;
-    font-size: 0.9rem; font-weight: 600; color: var(--accent);
-  }
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 2.2rem;
+    }
 
-  .catalog-note {
-    text-align: center; margin-top: 1.5rem;
-    font-size: 0.82rem; color: var(--text-muted);
-    padding: 1rem; background: #F8FAFF; border-radius: 10px;
-    border: 1px solid var(--border);
-  }
-  .catalog-note strong { color: var(--navy); }
+    .section-head h2 {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      line-height: 1.14;
+      letter-spacing: 0;
+      margin: 0.85rem 0 0.75rem;
+      color: var(--text-white);
+      font-weight: 700;
+      text-wrap: balance;
+    }
 
-  /* ─── SERVICES SECTION ─── */
-  .services-section { background: var(--off-white); }
-  .services-inner { max-width: 1000px; margin: 0 auto; }
-  .services-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; }
-  .service-group h3 {
-    font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700;
-    color: var(--navy); margin-bottom: 1.25rem;
-    padding-bottom: 0.75rem; border-bottom: 2px solid var(--accent-light);
-  }
-  .service-item {
-    display: flex; align-items: flex-start; gap: 1rem;
-    padding: 1rem 0; border-bottom: 1px solid #E2E8F0;
-  }
-  .service-icon {
-    width: 38px; height: 38px; border-radius: 10px;
-    background: var(--accent-light); color: var(--accent);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1rem; flex-shrink: 0;
-  }
-  .service-info h4 { font-weight: 600; font-size: 0.9rem; color: var(--navy); margin-bottom: 0.2rem; }
-  .service-info p  { font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; }
+    .section-head p {
+      color: var(--text-muted);
+      font-size: 1.08rem;
+      max-width: 63ch;
+    }
 
-  /* ─── PROCESS ─── */
-  .process-section { background: var(--navy); color: var(--white); }
-  .process-section .section-tag { background: rgba(37,99,235,0.3); color: #93C5FD; }
-  .process-section .section-title { color: var(--white); margin: 0 auto 3rem; text-align: center; max-width: 100%; }
-  .process-header { text-align: center; }
-  .process-header .section-sub { color: rgba(255,255,255,0.55); margin: 0 auto; }
-  .steps {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-    gap: 1.5rem; max-width: 1000px; margin: 0 auto;
-  }
-  .step {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: var(--radius); padding: 1.75rem 1.5rem;
-    position: relative; overflow: hidden;
-  }
-  .step-num {
-    font-family: 'Syne', sans-serif; font-size: 3rem; font-weight: 800;
-    color: rgba(255,255,255,0.06); position: absolute; top: 0.5rem; right: 1rem; line-height: 1;
-  }
-  .step-icon {
-    width: 42px; height: 42px; border-radius: 12px;
-    background: rgba(37,99,235,0.3); color: #93C5FD;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.1rem; margin-bottom: 1rem;
-  }
-  .step h4 { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
-  .step p  { font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
+    .topbar {
+      background: #0A1322;
+      color: var(--text-body);
+      border-bottom: 1px solid var(--border-color);
+    }
 
-  /* ─── CTA ─── */
-  .cta-banner {
-    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-    color: var(--white); text-align: center; padding: 4.5rem 2.5rem;
-  }
-  .cta-banner h2 {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(1.8rem, 3vw, 2.6rem);
-    font-weight: 800; letter-spacing: -0.8px; margin-bottom: 1rem;
-  }
-  .cta-banner p { color: rgba(255,255,255,0.8); font-size: 1rem; margin-bottom: 2rem; }
-  .btn-white {
-    background: var(--white); color: var(--accent);
-    padding: 0.9rem 2.2rem; border-radius: 10px;
-    font-weight: 700; font-size: 0.95rem; text-decoration: none;
-    display: inline-block; transition: transform 0.2s;
-  }
-  .btn-white:hover { transform: translateY(-2px); }
+    .topbar-inner {
+      width: min(1200px, calc(100% - 2.2rem));
+      margin: 0 auto;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.86rem;
+      flex-wrap: wrap;
+      padding: 0.3rem 0;
+    }
 
-  /* ─── FOOTER ─── */
-  footer {
-    background: var(--navy); color: rgba(255,255,255,0.45);
-    text-align: center; padding: 2rem; font-size: 0.8rem;
-  }
-  footer span { color: rgba(255,255,255,0.8); }
+    .topbar strong {
+      color: var(--text-white);
+    }
 
-  /* ─── RESPONSIVE ─── */
-  @media (max-width: 700px) {
-    nav ul { display: none; }
-    .stat-item { padding: 1rem 1.5rem; }
-    .services-cols { grid-template-columns: 1fr; gap: 2rem; }
-    .catalog-table td, .catalog-table th { padding: 0.75rem; }
-  }
+    .topbar-meta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
 
-/* PREMIUM RESPONSIVE ADDITIONS */
-.menu-toggle{display:none;font-size:1.6rem;color:white;cursor:pointer}
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-color);
+    }
 
-@media (max-width:768px){
-  nav{padding:1rem}
-  .menu-toggle{display:block}
-  nav ul{
-    display:none;
-    position:absolute;
-    top:70px;
-    right:0;
-    width:100%;
-    background:#0B1B35;
-    flex-direction:column;
-    padding:1.5rem;
-  }
-  nav ul.active{display:flex}
+    .site-nav-inner {
+      width: min(1200px, calc(100% - 2.2rem));
+      margin: 0 auto;
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
 
-  section{padding:3rem 1.2rem}
-  .hero{padding:4rem 1.2rem}
-  .hero-btns a{width:100%;text-align:center}
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      min-width: 0;
+    }
 
-  .stats-bar{flex-direction:column}
-  .stat-item{border-right:none;border-bottom:1px solid var(--border)}
+    .logo-img {
+      width: 84px;
+      height: 84px;
+      flex-shrink: 0;
+      object-fit: contain;
+      border-radius: 12px;
+    }
 
-  .services-cols{grid-template-columns:1fr}
+    .brand-copy {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+      gap: 0.18rem;
+    }
 
-  .table-wrapper{overflow-x:auto}
-  .catalog-table{min-width:600px}
+    .brand-copy small {
+      font-size: 0.58rem;
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+      color: var(--primary-blue);
+      font-weight: 800;
+    }
+
+    .brand-copy strong {
+      color: var(--text-white);
+      font-size: 1.05rem;
+      letter-spacing: 0;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .nav-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: var(--text-body);
+      padding: 0.6rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      background: var(--primary-blue);
+      color: var(--text-white);
+      outline: none;
+    }
+
+    .nav-links .cta-link {
+      background: #F8FAFC;
+      color: #0F172A;
+      box-shadow: 0 8px 16px rgba(59, 130, 246, 0.18);
+    }
+
+    .nav-links .cta-link:hover,
+    .nav-links .cta-link:focus-visible {
+      box-shadow: 0 12px 24px rgba(59, 130, 246, 0.28);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      background: var(--card-bg);
+      color: var(--text-white);
+      cursor: pointer;
+      font-size: 1.25rem;
+    }
+
+    .hero {
+      padding: 5rem 0 4.4rem;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(120deg, rgba(59, 130, 246, 0.16) 0%, transparent 34%),
+        linear-gradient(240deg, rgba(245, 158, 11, 0.08) 0%, transparent 38%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0%, rgba(15, 23, 42, 0) 100%);
+    }
+
+    .hero-grid {
+      width: min(1200px, calc(100% - 2.2rem));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+      gap: 1.6rem;
+    }
+
+    .hero-grid > .hero-copy {
+      grid-column: 1 / -1;
+    }
+
+    .hero-grid > .hero-side {
+      grid-column: 1 / -1; /* full width */
+  grid-row: 2;
+    }
+
+    .hero-side {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
 }
 
-</style>
+    .hero-grid > .hero-copy {
+      grid-column: 1 / -1;
+    }
+
+    .hero-copy {
+      background:
+        var(--panel-gradient),
+        var(--hero-gradient);
+      color: var(--text-white);
+      border-radius: 22px;
+      padding: clamp(2rem, 4vw, 3.35rem);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(148, 163, 184, 0.24);
+      min-height: 100%;
+    }
+
+    .hero-copy::before,
+    .hero-copy::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .hero-copy::before {
+      inset: 0;
+      background:
+        linear-gradient(115deg, rgba(59, 130, 246, 0.16) 0 1px, transparent 1px 86px),
+        linear-gradient(25deg, rgba(255, 255, 255, 0.055) 0 1px, transparent 1px 92px);
+      opacity: 0.55;
+    }
+
+    .hero-copy::after {
+      inset: auto 0 0 0;
+      height: 42%;
+      background: linear-gradient(180deg, transparent 0%, rgba(8, 13, 28, 0.42) 100%);
+    }
+
+    .hero-copy > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(1.8rem, 3.5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.03;
+      letter-spacing: 0;
+      margin: 0.8rem 0 0.75rem;
+      font-weight: 800;
+      max-width: 13.5ch;
+      text-wrap: balance;
+      text-shadow: 0 2px 22px rgba(8, 13, 28, 0.22);
+    }
+
+    .hero-copy p {
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.94);
+      max-width: 62ch;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      min-height: 52px;
+      padding: 0.92rem 1.35rem;
+      border-radius: var(--radius-lg);
+      font-weight: 600;
+      border: 1px solid transparent;
+      transition: 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .btn-primary {
+      background: #F8FAFC;
+      color: #0F172A;
+      box-shadow: 0 12px 28px rgba(59, 130, 246, 0.22);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      box-shadow: 0 16px 36px rgba(59, 130, 246, 0.28);
+    }
+
+    .btn-secondary {
+      color: var(--text-white);
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.35);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
+      background: rgba(255, 255, 255, 0.18);
+      border-color: rgba(255, 255, 255, 0.7);
+    }
+
+    .hero-points {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.95rem;
+      margin-top: 2rem;
+    }
+
+    .point-card {
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.12);
+      padding: 1rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .point-card:hover{
+      border-color: var(--primary-blue);
+    }
+
+  .trust-grid .trust-item:hover {
+      border-color: var(--primary-blue);
+    }
+
+    .point-card [data-lucide],
+    .trust-item [data-lucide] {
+      width: 20px;
+      height: 20px;
+      color: #FDE68A;
+      margin-bottom: 0.65rem;
+    }
+
+    .point-card strong {
+      display: block;
+      color: var(--text-white);
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+      font-weight: 700;
+    }
+
+    .point-card span {
+      display: block;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.87rem;
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 1rem;
+      min-width: 0;
+    }
+
+    .hero-visual,
+    .analytics-card,
+    .mini-service-card {
+      border-radius: var(--radius-xl);
+      background:
+        var(--panel-gradient),
+        var(--elevated-bg);
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+    }
+
+    .hero-visual {
+      padding: 1rem;
+      box-shadow: 0 22px 55px rgba(8, 13, 28, 0.38);
+    }
+
+    .visual-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      padding: 0 0.2rem;
+    }
+
+    .dot-group {
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .dot-group span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--primary-blue);
+    }
+
+    .visual-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #DBEAFE;
+      padding: 0.45rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(59, 130, 246, 0.12);
+      border: 1px solid rgba(59, 130, 246, 0.25);
+    }
+
+    .hero-photo {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      min-height: 410px;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(1.08) contrast(1.05);
+    }
+
+    .hero-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.02) 35%, rgba(15, 23, 42, 0.78) 100%);
+      pointer-events: none;
+    }
+
+    .hero-photo-caption {
+      position: absolute;
+      left: 1rem;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 1;
+      background: rgba(15, 23, 42, 0.86);
+      color: var(--text-white);
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      border-radius: 16px;
+      padding: 1rem;
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-photo-caption strong {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .hero-photo-caption span {
+      display: block;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    .analytics-card,
+    .mini-service-card {
+      padding: 1.35rem;
+    }
+
+    .analytics-card h3,
+    .mini-service-card h3 {
+      font-size: 1.08rem;
+      line-height: 1.28;
+      letter-spacing: 0;
+      margin-bottom: 0.55rem;
+      color: var(--text-white);
+      font-weight: 700;
+    }
+
+    .analytics-card p,
+    .mini-service-card p {
+      color: var(--text-body);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .chart {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .chart-row {
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .chart-row strong {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.84rem;
+      color: var(--text-body);
+    }
+
+    .bar {
+      width: 100%;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--secondary-bg);
+      overflow: hidden;
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      border-radius: 999px;
+      background: var(--gradient);
+    }
+
+    .mini-service-card ul,
+    .trust-list,
+    .feature-list,
+    .platform-list,
+    .process-list,
+    .faq-list,
+    .contact-points {
+      list-style: none;
+    }
+
+    .mini-service-card ul {
+      display: grid;
+      gap: 0.55rem;
+    }
+
+    .mini-service-card li {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.7rem;
+      padding-bottom: 0.55rem;
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.9rem;
+    }
+
+    .mini-service-card li:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .trust {
+      padding: 1rem 0 2rem;
+    }
+
+    .trust-grid {
+      width: min(1200px, calc(100% - 2.2rem));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .trust-item {
+      background: var(--panel-gradient), var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 1.15rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .trust-item strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.97rem;
+      color: var(--text-white);
+      font-weight: 700;
+    }
+
+    .trust-item span {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    section {
+      padding: 5.4rem 0;
+    }
+
+    .solutions-grid,
+    .platform-grid,
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.15rem;
+    }
+
+    .solution-card,
+    .platform-card,
+    .process-card,
+    .faq-card,
+    .contact-card,
+    .contact-form,
+    .offer-card,
+    .comparison-card {
+      background: var(--panel-gradient), var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-sm);
+      padding: 1.5rem;
+      transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
+    }
+
+    .solution-card:hover,
+    .platform-card:hover,
+    .process-card:hover,
+    .faq-card:hover,
+    .offer-card:hover,
+    .comparison-card:hover,
+    .contact-form:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(59, 130, 246, 0.45);
+    }
+
+    .solution-icon,
+    .platform-icon,
+    .process-num,
+    .contact-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius-lg);
+      background: rgba(59, 130, 246, 0.11);
+      color: #BFDBFE;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .solution-icon [data-lucide],
+    .platform-icon [data-lucide],
+    .process-num [data-lucide] {
+      width: 22px;
+      height: 22px;
+    }
+
+    .solution-card h3,
+    .process-card h3,
+    .faq-card h3,
+    .offer-card h3,
+    .platform-card h3,
+    .comparison-card h3,
+    .contact-card h3,
+    .contact-form h3 {
+      font-size: 1.12rem;
+      line-height: 1.28;
+      letter-spacing: 0;
+      margin-bottom: 0.6rem;
+      color: var(--text-white);
+      font-weight: 700;
+    }
+
+    .offer-card h3 {
+      font-size: 1.5rem;
+      line-height: 1.28;
+      padding: 20px 0 5px;
+      letter-spacing: 0;
+      margin-bottom: 0.6rem;
+      color: var(--text-white);
+      font-weight: 700;
+    }
+
+    .contact-card h3 {
+      font-size: clamp(1.35rem, 2.2vw, 1.8rem);
+      padding: 0;
+      margin: 0;
+      line-height: 1.22;
+      letter-spacing: 0;
+      margin-bottom: 0.8rem;
+      color: var(--text-white);
+    }
+
+    .offer-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .card-price {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.15rem;
+      padding: 0.65rem 0.85rem;
+      border-radius: var(--radius-lg);
+      background: rgba(52, 211, 153, 0.1);
+      border: 1px solid rgba(52, 211, 153, 0.22);
+      color: #BBF7D0;
+      font-weight: 700;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card-price strong {
+      font-size: 1.3rem;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .card-price span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .solution-card p,
+    .platform-card p,
+    .process-card p,
+    .faq-card p,
+    .offer-card p,
+    .comparison-card p,
+    .contact-card p,
+    .contact-form p {
+      color: var(--text-body);
+      margin-bottom: 1rem;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 0.58rem;
+      color: var(--text-body);
+      font-size: 0.92rem;
+    }
+
+    .feature-list li::before,
+    .platform-list li::before,
+    .faq-list li::before,
+    .contact-points li::before {
+      content: "\2022";
+      color: var(--accent-cyan);
+      font-weight: 800;
+      margin-right: 0.55rem;
+    }
+
+    .offer-strip {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 1.2rem;
+      align-items: stretch;
+    }
+
+    .offer-card.primary-offer {
+      background:
+        linear-gradient(135deg, rgba(59, 130, 246, 0.22), rgba(99, 102, 241, 0.14)),
+        #101B2F;
+      color: var(--text-white);
+      border-color: rgba(59, 130, 246, 0.26);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .offer-card.primary-offer h3,
+    .offer-card.primary-offer p,
+    .offer-card.primary-offer li,
+    .offer-card.primary-offer .offer-meta {
+      color: var(--text-white);
+    }
+
+    .offer-price {
+      display: flex;
+      align-items: flex-end;
+      gap: 0.35rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0;
+    }
+
+    .offer-price strong {
+      font-size: 3rem;
+      line-height: 1;
+      font-weight: 800;
+    }
+
+    .offer-price span {
+      margin-bottom: 0.35rem;
+      font-size: 0.95rem;
+    }
+
+    .offer-meta {
+      font-size: 0.88rem;
+      margin-top: 0.9rem;
+    }
+
+    .comparison-card table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .comparison-card td {
+      padding: 0.82rem 0;
+      border-bottom: 1px solid var(--border-color);
+      vertical-align: top;
+    }
+
+    .comparison-card tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .comparison-card td:first-child {
+      font-weight: 700;
+      color: var(--text-white);
+      padding-right: 1rem;
+      width: 38%;
+    }
+
+    .comparison-card td:last-child {
+      color: var(--text-body);
+    }
+
+    .platform-card {
+      position: relative;
+      overflow: hidden;
+      background: var(--panel-gradient), var(--card-bg);
+    }
+
+    .platform-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-cyan), rgba(129, 140, 248, 0.7));
+    }
+
+    .platform-badge {
+      position: absolute;
+      top: 1.3rem;
+      right: 1.3rem;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 700;
+    }
+
+    .badge-enterprise {
+      background: rgba(59, 130, 246, 0.13);
+      color: #BFDBFE;
+    }
+
+    .badge-academic {
+      background: rgba(129, 140, 248, 0.15);
+      color: #C7D2FE;
+    }
+
+    .badge-open {
+      background: rgba(52, 211, 153, 0.12);
+      color: #BBF7D0;
+    }
+
+    .platform-list {
+      display: grid;
+      gap: 0.58rem;
+      font-size: 0.92rem;
+      color: var(--text-body);
+    }
+
+    .analytics-section {
+      background:
+        linear-gradient(180deg, rgba(59, 130, 246, 0.07), rgba(15, 23, 42, 0)),
+        var(--primary-bg);
+      color: var(--text-white);
+    }
+
+    .analytics-section .section-head p {
+      color: var(--text-body);
+    }
+
+    .analytics-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      align-items: stretch;
+    }
+
+    .analytics-panel,
+    .analytics-photo {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      background: var(--panel-gradient), var(--card-bg);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .analytics-panel {
+      padding: 1.5rem;
+    }
+
+    .analytics-metrics {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.1rem;
+    }
+
+    .metric {
+      padding: 1rem;
+      border-radius: 16px;
+      background: rgba(15, 23, 42, 0.54);
+      border: 1px solid var(--border-color);
+    }
+
+    .metric [data-lucide],
+    .faq-card [data-lucide],
+    .contact-card [data-lucide],
+    .contact-form [data-lucide] {
+      width: 20px;
+      height: 20px;
+      color: #FDE68A;
+      margin-bottom: 0.55rem;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.08rem;
+      margin-bottom: 0.25rem;
+      color: var(--text-white);
+      font-weight: 700;
+    }
+
+    .metric span {
+      display: block;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .analytics-photo {
+      position: relative;
+      min-height: 100%;
+    }
+
+    .analytics-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      min-height: 420px;
+    }
+
+    .analytics-photo .overlay {
+      position: absolute;
+      inset: auto 1rem 1rem 1rem;
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: 16px;
+      padding: 1rem;
+      border: 1px solid var(--border-color);
+    }
+
+    .analytics-photo .overlay strong {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-size: 1rem;
+      color: var(--text-white);
+      font-weight: 700;
+    }
+
+    .analytics-photo .overlay span {
+      display: block;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .process-card {
+      background: var(--panel-gradient), var(--card-bg);
+    }
+
+    .process-num {
+      width: 44px;
+      height: 44px;
+      font-size: 0.95rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 1.2rem;
+      align-items: start;
+    }
+
+    .contact-card {
+      background:
+        linear-gradient(145deg, rgba(59, 130, 246, 0.22), rgba(99, 102, 241, 0.12)),
+        #101B2F;
+      color: var(--text-white);
+      border-color: rgba(59, 130, 246, 0.26);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .contact-card h3,
+    .contact-card p,
+    .contact-card li {
+      color: var(--text-white);
+    }
+
+    .contact-card p,
+    .contact-card li {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .contact-points {
+      display: grid;
+      gap: 0.6rem;
+      font-size: 0.94rem;
+    }
+
+    .contact-form form {
+      display: grid;
+      gap: 0.95rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.95rem;
+    }
+
+    label {
+      display: grid;
+      gap: 0.4rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-white);
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.9rem 0.95rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-color);
+      background: #0B1424;
+      color: var(--text-white);
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: var(--text-muted);
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: 2px solid var(--primary-blue);
+      border-color: var(--primary-blue);
+      background: #0B1424;
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .success-message {
+      display: none;
+      margin-top: 1rem;
+      padding: 0.95rem 1rem;
+      border-radius: var(--radius-lg);
+      background: rgba(52, 211, 153, 0.12);
+      color: #BBF7D0;
+      border: 1px solid rgba(52, 211, 153, 0.28);
+      font-size: 0.9rem;
+    }
+
+    .success-message.show {
+      display: block;
+    }
+
+    .footer-cta {
+      padding: 0 0 2rem;
+    }
+
+    .footer-band {
+      width: min(1200px, calc(100% - 2.2rem));
+      margin: 0 auto;
+      padding: 2.3rem;
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(145deg, rgba(59, 130, 246, 0.25), rgba(99, 102, 241, 0.13)),
+        #101B2F;
+      color: var(--text-white);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .footer-band h2 {
+      font-size: clamp(1.45rem, 2.6vw, 2rem);
+      line-height: 1.18;
+      letter-spacing: 0;
+      padding-bottom: 0.4rem;
+      font-weight: 700;
+    }
+
+    .footer-band p {
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 58ch;
+      padding-bottom: 0.5rem;
+      font-size: 1.02rem;
+    }
+
+    footer {
+      position: relative;
+      overflow: hidden;
+      padding: 2rem 0 2.6rem;
+      background: #08111F;
+      color: var(--text-body);
+    }
+
+    footer::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.02)),
+        linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.01) 50%, transparent 100%);
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), transparent);
+      pointer-events: none;
+    }
+
+    .footer-shell {
+      position: relative;
+      z-index: 1;
+      width: min(1200px, calc(100% - 2.2rem));
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.85fr 0.9fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .footer-panel {
+      padding: 1.35rem;
+      border-radius: var(--radius-xl);
+      background: var(--panel-gradient), var(--card-bg);
+      border: 1px solid var(--border-color);
+      backdrop-filter: blur(12px);
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-logo {
+      width: 46px;
+      height: 46px;
+      flex-shrink: 0;
+      object-fit: contain;
+      border-radius: 12px;
+      filter: drop-shadow(0 10px 22px rgba(37, 99, 235, 0.2));
+    }
+
+    .footer-brand-copy strong {
+      display: block;
+      color: var(--text-white);
+      font-size: 1.08rem;
+      letter-spacing: 0;
+      font-weight: 700;
+    }
+
+    .footer-brand-copy span {
+      display: block;
+      margin-top: 0.15rem;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--primary-blue);
+    }
+
+    .footer-intro {
+      color: var(--text-body);
+      font-size: 0.98rem;
+      max-width: 42ch;
+    }
+
+    .footer-title {
+      margin-bottom: 0.9rem;
+      font-size: 1rem;
+      letter-spacing: 0;
+      color: var(--text-white);
+      font-weight: 700;
+    }
+
+    .footer-links,
+    .footer-platforms,
+    .footer-metrics {
+      list-style: none;
+      display: grid;
+      gap: 0.68rem;
+    }
+
+    .footer-links a,
+    .footer-platforms li,
+    .footer-metrics li {
+      color: var(--text-body);
+      font-size: 0.95rem;
+    }
+
+    .footer-links a:hover,
+    .footer-links a:focus-visible {
+      color: var(--text-white);
+      outline: none;
+    }
+
+    .footer-platforms li {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .footer-platforms span {
+      display: inline-grid;
+      place-items: center;
+      min-width: 36px;
+      height: 36px;
+      padding: 0 0.7rem;
+      border-radius: 12px;
+      background: var(--secondary-bg);
+      color: var(--primary-blue);
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .footer-metrics strong {
+      display: block;
+      margin-bottom: 0.15rem;
+      color: var(--text-white);
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-top: 1.1rem;
+      border-top: 1px solid var(--border-color);
+      font-size: 0.94rem;
+    }
+
+    .footer-bottom p {
+      color: var(--text-muted);
+    }
+
+    .footer-bottom nav {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-bottom a {
+      color: var(--text-body);
+    }
+
+    .footer-bottom a:hover,
+    .footer-bottom a:focus-visible {
+      color: var(--text-white);
+      outline: none;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .offer-strip,
+      .analytics-layout,
+      .contact-grid,
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-grid,
+      .solutions-grid,
+      .platform-grid,
+      .faq-grid,
+      .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 820px) {
+      .menu-toggle {
+        display: inline-grid;
+        place-items: center;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: calc(100% + 0.7rem);
+        left: 0;
+        right: 0;
+        background: var(--secondary-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 1rem;
+        box-shadow: var(--shadow-lg);
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .nav-links a {
+        width: 100%;
+      }
+
+      .form-grid,
+      .trust-grid,
+      .solutions-grid,
+      .platform-grid,
+      .faq-grid,
+      .hero-points {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy,
+      .hero-visual,
+      .footer-band {
+        padding: 1.35rem;
+      }
+
+      .footer-grid,
+      .footer-bottom {
+        grid-template-columns: 1fr;
+        display: grid;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .topbar {
+        display: none;
+      }
+
+      .container,
+      .site-nav-inner,
+      .hero-grid,
+      .trust-grid,
+      .footer-band {
+        width: min(1200px, calc(100% - 1.2rem));
+      }
+
+      .hero,
+      section {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+      }
+
+      .hero-copy h1 {
+        font-size: 1.9rem;
+      }
+
+      .section-head h2 {
+        font-size: 1.65rem;
+      }
+
+      .footer-band {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-shell {
+        width: min(1200px, calc(100% - 1.2rem));
+      }
+    }
+  </style>
 </head>
 <body>
-
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo"><span class="dot"></span>LearnFlow AI</a>
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-  <ul id="navMenu">
-    <li><a href="#platforms">Platforms</a></li>
-    <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#process">Process</a></li>
-    <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-badge">⚡ Certified LMS Specialists</div>
-  <h1>Expert LMS Services for<br><em>Docebo, Canvas & Moodle</em></h1>
-  <p>End-to-end implementation, customization, migration, and support for the world's leading learning management platforms.</p>
-  <div class="hero-btns">
-    <a href="#pricing" class="btn-primary">View Service Catalog</a>
-    <a href="#platforms" class="btn-outline">Explore Platforms</a>
-  </div>
-</div>
-
-<!-- STATS -->
-<div class="stats-bar">
-  <div class="stat-item"><span class="stat-num">150+</span><span class="stat-label">LMS Projects Delivered</span></div>
-  <div class="stat-item"><span class="stat-num">3</span><span class="stat-label">Platform Specializations</span></div>
-  <div class="stat-item"><span class="stat-num">98%</span><span class="stat-label">Client Satisfaction</span></div>
-  <div class="stat-item"><span class="stat-num">10+</span><span class="stat-label">Years of Experience</span></div>
-</div>
-
-<!-- PLATFORMS -->
-<section class="platforms" id="platforms">
-  <div class="platforms-header">
-    <div class="section-tag">Platform Expertise</div>
-    <h2 class="section-title">Choose Your LMS Platform</h2>
-    <p class="section-sub">We specialize in three industry-leading platforms — each tailored to different organizational needs, scales, and budgets.</p>
-  </div>
-
-  <div class="platforms-grid">
-
-    <!-- DOCEBO -->
-    <div class="platform-card">
-      <div class="card-header">
-        <div class="platform-logo logo-docebo">Do</div>
-        <div class="platform-name">Docebo</div>
-        <div class="platform-tagline">AI-powered enterprise learning suite</div>
-        <span class="platform-badge badge-enterprise">Enterprise</span>
-      </div>
-      <div class="card-body">
-        <ul class="services-list">
-          <li><span class="check check-docebo">✓</span>Full platform implementation & configuration</li>
-          <li><span class="check check-docebo">✓</span>Custom branding & white-label setup</li>
-          <li><span class="check check-docebo">✓</span>HRIS/CRM integrations (Salesforce, Workday)</li>
-          <li><span class="check check-docebo">✓</span>AI-powered learning path automation</li>
-          <li><span class="check check-docebo">✓</span>Content migration & SCORM publishing</li>
-          <li><span class="check check-docebo">✓</span>Admin training & ongoing support</li>
-        </ul>
-      </div>
-      <div class="card-footer">
-        <span class="card-price">Best for large enterprises</span>
-        <a href="#pricing" class="card-cta cta-docebo">See pricing →</a>
-      </div>
-    </div>
-
-    <!-- CANVAS -->
-    <div class="platform-card">
-      <div class="card-header">
-        <div class="platform-logo logo-canvas">Ca</div>
-        <div class="platform-name">Canvas LMS</div>
-        <div class="platform-tagline">Modern platform for education & corporates</div>
-        <span class="platform-badge badge-academic">Academic</span>
-      </div>
-      <div class="card-body">
-        <ul class="services-list">
-          <li><span class="check check-canvas">✓</span>Canvas implementation for K-12 & higher ed</li>
-          <li><span class="check check-canvas">✓</span>SIS integrations (PowerSchool, Banner, Ellucian)</li>
-          <li><span class="check check-canvas">✓</span>LTI tool integrations & marketplace apps</li>
-          <li><span class="check check-canvas">✓</span>Custom theme development & UI branding</li>
-          <li><span class="check check-canvas">✓</span>Course design & instructional consulting</li>
-          <li><span class="check check-canvas">✓</span>Faculty training & adoption programs</li>
-        </ul>
-      </div>
-      <div class="card-footer">
-        <span class="card-price">Best for education institutions</span>
-        <a href="#pricing" class="card-cta cta-canvas">See pricing →</a>
-      </div>
-    </div>
-
-    <!-- MOODLE -->
-    <div class="platform-card">
-      <div class="card-header">
-        <div class="platform-logo logo-moodle">Mo</div>
-        <div class="platform-name">Moodle</div>
-        <div class="platform-tagline">Open-source flexibility at scale</div>
-        <span class="platform-badge badge-open">Open Source</span>
-      </div>
-      <div class="card-body">
-        <ul class="services-list">
-          <li><span class="check check-moodle">✓</span>Moodle installation, hosting & infrastructure</li>
-          <li><span class="check check-moodle">✓</span>Custom plugin development & theme design</li>
-          <li><span class="check check-moodle">✓</span>MoodleCloud & self-hosted migrations</li>
-          <li><span class="check check-moodle">✓</span>Performance tuning & security hardening</li>
-          <li><span class="check check-moodle">✓</span>Version upgrades & maintenance retainers</li>
-          <li><span class="check check-moodle">✓</span>xAPI / Tin Can integration & reporting</li>
-        </ul>
-      </div>
-      <div class="card-footer">
-        <span class="card-price">Best for cost-conscious orgs</span>
-        <a href="#pricing" class="card-cta cta-moodle">See pricing →</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- PRICING CATALOG -->
-<section class="pricing" id="pricing">
-  <div class="pricing-header">
-    <div class="section-tag">Service Catalog &amp; Fees</div>
-    <h2 class="section-title">Transparent Pricing for Every Service</h2>
-    <p class="section-sub">Fixed-fee and hourly rates for all services. Select a platform below to view its full catalog.</p>
-  </div>
-
-  <div class="pricing-tabs">
-    <button class="tab-btn active" onclick="showTab('docebo', this)">Docebo</button>
-    <button class="tab-btn" onclick="showTab('canvas', this)">Canvas LMS</button>
-    <button class="tab-btn" onclick="showTab('moodle', this)">Moodle</button>
-    <button class="tab-btn" onclick="showTab('shared', this)">All Platforms</button>
-  </div>
-
-  <!-- DOCEBO CATALOG -->
-  <div class="catalog-panel active" id="tab-docebo">
-    <div class="table-wrapper"><table class="catalog-table">
-      <thead>
-        <tr>
-          <th style="width:30%">Service</th>
-          <th style="width:42%">Description</th>
-          <th style="width:14%">Duration</th>
-          <th style="width:14%">Fee</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <span class="service-cat cat-impl">Implementation</span>
-            <span class="service-name">Full Docebo Setup</span>
-          </td>
-          <td><span class="service-desc">Initial tenant provisioning, domain setup, role configuration, branding, and basic navigation structure.</span></td>
-          <td>2–3 weeks</td>
-          <td><span class="price-tag">$3,500</span><span class="price-unit">Fixed fee</span></td>
-        </tr>
-        <tr>
-          <td>
-            <span class="service-cat cat-custom">Custom</span>
-            <span class="service-name">White-Label Branding</span>
-          </td>
-          <td><span class="service-desc">Custom logo, color scheme, fonts, email templates, and learner portal UI aligned to your brand guidelines.</span></td>
-          <td>1 week</td>
-          <td><span class="price-tag">$1,200</span><span class="price-unit">Fixed fee</span></td>
-        </tr>
-        <tr>
-          <td>
-            <span class="service-cat cat-int">Integration</span>
-            <span class="service-name">HRIS / CRM Integration</span>
-          </td>
-          <td><span class="service-desc">API-level sync with Salesforce, Workday, BambooHR, or similar. Includes field mapping, SSO (SAML/OIDC), and automated user provisioning.</span></td>
-          <td>2–4 weeks</td>
-          <td><span class="price-tag">$2,800</span><span class="price-unit">Per integration</span></td>
-        </tr>
-        <tr>
-          <td>
-            <span class="service-cat cat-impl">Implementation</span>
-            <span class="service-name">AI Learning Path Setup</span>
-          </td>
-          <td><span class="service-desc">Configure Docebo's AI engine, skills framework, and automated enrollment rules for personalized learning journeys.</span></td>
-          <td>1–2 weeks</td>
-          <td><span class="price-tag">$1,800</span><span class="price-unit">Fixed fee</span></td>
-        </tr>
-        <tr>
-          <td>
-            <span class="service-cat cat-mig">Migration</span>
-            <span class="service-name">Content & User Migration</span>
-          </td>
-          <td><span class="service-desc">Migrate SCORM/xAPI courses, users, enrollment history, and completion records from your legacy LMS to Docebo.</span></td>
-          <td>2–5 weeks</td>
-          <td><span class="price-tag">$95</span><span class="price-unit">Per hour</span></td>
-        </tr>
-        <tr>
-          <td>
-            <span class="service-cat cat-train">Training</span>
-            <span class="service-name">Admin Training Program</span>
-          </td>
-          <td><span class="service-desc">Live virtual training sessions for LMS admins covering catalog management, reporting, integrations, and user management.</span></td>
-          <td>2 days</td>
-          <td><span class="price-tag">$900</span><span class="price-unit">Per cohort</span></td>
-        </tr>
-        <tr>
-          <td>
-            <span class="service-cat cat-supp">Support</span>
-            <span class="service-name">Managed Support Retainer</span>
-          </td>
-          <td><span class="service-desc">Dedicated monthly support hours for bug fixes, feature requests, admin assistance, and platform health monitoring.</span></td>
-          <td>Ongoing</td>
-          <td><span class="price-tag">$1,500</span><span class="price-unit">Per month (10 hrs)</span></td>
-        </tr>
-        <tr>
-          <td>
-            <span class="service-cat cat-int">Integration</span>
-            <span class="service-name">Analytics & Reporting Setup</span>
-          </td>
-          <td><span class="service-desc">Custom dashboards, scheduled reports, and LRS/xAPI pipeline setup for deep learning insights and compliance tracking.</span></td>
-          <td>1–2 weeks</td>
-          <td><span class="price-tag">$1,400</span><span class="price-unit">Fixed fee</span></td>
-        </tr>
-      </tbody>
-    </table></div>
-    <p class="catalog-note"><strong>Note:</strong> Hourly engagements billed in 1-hour increments. Project minimums may apply. All prices in USD and exclude applicable taxes. Contact us for enterprise volume discounts.</p>
-  </div>
-
-  <!-- CANVAS CATALOG -->
-  <div class="catalog-panel" id="tab-canvas">
-    <div class="table-wrapper"><table class="catalog-table">
-      <thead>
-        <tr>
-          <th style="width:30%">Service</th>
-          <th style="width:42%">Description</th>
-          <th style="width:14%">Duration</th>
-          <th style="width:14%">Fee</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <span class="service-cat cat-impl">Implementation</span>
-            <span class="service-name">Canvas Platform Setup</span>
-          </td>
-          <td><span class="service-desc">Full Canvas provisioning including sub-accounts, role permissions, notifications, grading policies, and admin configuration.</span></td>
-          <td>2–3 weeks</td>
-          <td><span class="price-tag">$3,200</span><span class="price-unit">Fixed fee</span></td>
-        </tr>
-        <tr>
-          <td>
-            <span class="service-cat cat-int">Integration</span>
-            <span class="service-name">SIS Integration</span>
-          </td>
-          <td><span class="service-desc">Sync Canvas with PowerSchool, Banner, Ellucian, or Infinite Campus. Includes course creation, enrollment, and grade passback.</span></td>
-          <td>2–4 weeks</td>
-          <td><span class="price-tag">$2,600</span><span class="price-unit">Per integration</span></td>
-        </tr>
-        <tr>
-          <td>
-            <span class="service-cat cat-int">Integration</span>
-            <span class="service-name">LTI Tool Integration</span>
-          </td>
-          <td><span class="service-desc">Configure and test external LTI 1.3 tools such as Turnitin, Zoom, VoiceThread, H5P, or other marketplace apps.</span></td>
-          <td>3–5 days</td>
-          <td><span class="price-tag">$600</span><span class="price-unit">Per tool</span></td>
-        </tr>
-        <tr>
-          <td>
-            <span class="service-cat cat-custom">Custom</span>
-            <span class="service-name">Custom Theme & Branding</span>
-          </td>
-          <td><span class="service-desc">CSS/JS custom theming for Canvas global navigation, dashboard, and course pages matching institutional brand standards.</span></td>
-          <td>1 week</td>
-          <td><span class="price-tag">$1,100</span><span class="price-unit">Fixed fee</span></td>
-        </tr>
-        <tr>
-          <td>
-            <span class="service-cat cat-custom">Custom</span>
-            <span class="service-name">Course Design & Build</span>
-          </td>
-          <td><span class="service-desc">Instructional design and Canvas course shell build including modules, pages, assignments, rubrics, and media embeds.</span></td>
-          <td>Varies</td>
-          <td><span class="price-tag">$85</span><span class="price-unit">Per hour</span></td>
-        </tr>
-        <tr>
-          <td>
-            <span class="service-cat cat-train">Training</span>
-            <span class="service-name">Faculty Adoption Program</span>
-          </td>
-          <td><span class="service-desc">Structured onboarding workshop series for faculty: Canvas navigation, course building, gradebook, and SpeedGrader.</span></td>
-          <td>3 days</td>
-          <td><span class="price-tag">$1,200</span><span class="price-unit">Per cohort</span></td>
-        </tr>
-        <tr>
-          <td>
-            <span class="service-cat cat-mig">Migration</span>
-            <span class="service-name">Legacy LMS Migration</span>
-          </td>
-          <td><span class="service-desc">Migrate courses, users, and content from Blackboard, Moodle, D2L, or Schoology into Canvas with full QA review.</span></td>
-          <td>3–8 weeks</td>
-          <td><span class="price-tag">$90</span><span class="price-unit">Per hour</span></td>
-        </tr>
-        <tr>
-          <td>
-            <span class="service-cat cat-supp">Support</span>
-            <span class="service-name">Managed Support Retainer</span>
-          </td>
-          <td><span class="service-desc">Ongoing monthly support for Canvas admin tasks, LTI maintenance, troubleshooting, and new feature rollouts.</span></td>
-          <td>Ongoing</td>
-          <td><span class="price-tag">$1,300</span><span class="price-unit">Per month (10 hrs)</span></td>
-        </tr>
-      </tbody>
-    </table></div>
-    <p class="catalog-note"><strong>Note:</strong> Hourly engagements billed in 1-hour increments. Project minimums may apply. All prices in USD and exclude applicable taxes. Contact us for institutional pricing.</p>
-  </div>
-
-  <!-- MOODLE CATALOG -->
-  <div class="catalog-panel" id="tab-moodle">
-    <div class="table-wrapper"><table class="catalog-table">
-      <thead>
-        <tr>
-          <th style="width:30%">Service</th>
-          <th style="width:42%">Description</th>
-          <th style="width:14%">Duration</th>
-          <th style="width:14%">Fee</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <span class="service-cat cat-impl">Implementation</span>
-            <span class="service-name">Moodle Installation & Config</span>
-          </td>
-          <td><span class="service-desc">Server provisioning (AWS/Azure/GCP or on-prem), Moodle install, database setup, SSL, SMTP, and initial admin config.</span></td>
-          <td>1–2 weeks</td>
-          <td><span class="price-tag">$2,200</span><span class="price-unit">Fixed fee</span></td>
-        </tr>
-        <tr>
-          <td>
-            <span class="service-cat cat-custom">Custom</span>
-            <span class="service-name">Custom Theme Design</span>
-          </td>
-          <td><span class="service-desc">Bespoke Moodle Boost child theme with custom layout, colors, typography, homepage blocks, and mobile responsiveness.</span></td>
-          <td>1–2 weeks</td>
-          <td><span class="price-tag">$1,500</span><span class="price-unit">Fixed fee</span></td>
-        </tr>
-        <tr>
-          <td>
-            <span class="service-cat cat-custom">Custom</span>
-            <span class="service-name">Plugin Development</span>
-          </td>
-          <td><span class="service-desc">Custom Moodle plugin development (activity modules, blocks, authentication, enrollment, or report plugins) to spec.</span></td>
-          <td>Varies</td>
-          <td><span class="price-tag">$95</span><span class="price-unit">Per hour</span></td>
-        </tr>
-        <tr>
-          <td>
-            <span class="service-cat cat-mig">Migration</span>
-            <span class="service-name">Moodle Version Upgrade</span>
-          </td>
-          <td><span class="service-desc">Safe upgrade from older Moodle version to latest stable release. Includes plugin compatibility audit, staging test, and rollback plan.</span></td>
-          <td>1–2 weeks</td>
-          <td><span class="price-tag">$1,800</span><span class="price-unit">Fixed fee</span></td>
-        </tr>
-        <tr>
-          <td>
-            <span class="service-cat cat-mig">Migration</span>
-            <span class="service-name">Platform Migration to Moodle</span>
-          </td>
-          <td><span class="service-desc">Full course, user, and data migration from another LMS or MoodleCloud instance to a self-hosted environment.</span></td>
-          <td>2–6 weeks</td>
-          <td><span class="price-tag">$85</span><span class="price-unit">Per hour</span></td>
-        </tr>
-        <tr>
-          <td>
-            <span class="service-cat cat-int">Integration</span>
-            <span class="service-name">xAPI / LRS Integration</span>
-          </td>
-          <td><span class="service-desc">Connect Moodle to an LRS (Learning Locker, SCORM Cloud) for advanced xAPI/Tin Can statement tracking and reporting.</span></td>
-          <td>1 week</td>
-          <td><span class="price-tag">$1,100</span><span class="price-unit">Fixed fee</span></td>
-        </tr>
-        <tr>
-          <td>
-            <span class="service-cat cat-impl">Implementation</span>
-            <span class="service-name">Performance & Security Hardening</span>
-          </td>
-          <td><span class="service-desc">Caching setup (Redis/Memcached), CDN config, load testing, security audit, and hardening against common vulnerabilities.</span></td>
-          <td>1 week</td>
-          <td><span class="price-tag">$1,400</span><span class="price-unit">Fixed fee</span></td>
-        </tr>
-        <tr>
-          <td>
-            <span class="service-cat cat-supp">Support</span>
-            <span class="service-name">Monthly Maintenance Retainer</span>
-          </td>
-          <td><span class="service-desc">Proactive monitoring, plugin updates, security patches, backups, and dedicated support hours each month.</span></td>
-          <td>Ongoing</td>
-          <td><span class="price-tag">$950</span><span class="price-unit">Per month (8 hrs)</span></td>
-        </tr>
-      </tbody>
-    </table></div>
-    <p class="catalog-note"><strong>Note:</strong> Hourly engagements billed in 1-hour increments. Hosting costs are separate and depend on infrastructure choice. All prices in USD and exclude applicable taxes.</p>
-  </div>
-
-  <!-- SHARED / ALL PLATFORMS CATALOG -->
-  <div class="catalog-panel" id="tab-shared">
-    <div class="table-wrapper"><table class="catalog-table">
-      <thead>
-        <tr>
-          <th style="width:30%">Service</th>
-          <th style="width:42%">Description</th>
-          <th style="width:14%">Duration</th>
-          <th style="width:14%">Fee</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <span class="service-cat cat-impl">Discovery</span>
-            <span class="service-name">LMS Needs Assessment</span>
-          </td>
-          <td><span class="service-desc">Stakeholder interviews, requirements gathering, and a written recommendation report covering platform selection and roadmap.</span></td>
-          <td>1 week</td>
-          <td><span class="price-tag">$800</span><span class="price-unit">Fixed fee</span></td>
-        </tr>
-        <tr>
-          <td>
-            <span class="service-cat cat-train">Training</span>
-            <span class="service-name">End-User Training Workshop</span>
-          </td>
-          <td><span class="service-desc">Live virtual or on-site workshop for learners and managers covering platform navigation, course access, and progress tracking.</span></td>
-          <td>Half day</td>
-          <td><span class="price-tag">$750</span><span class="price-unit">Per session</span></td>
-        </tr>
-        <tr>
-          <td>
-            <span class="service-cat cat-custom">eLearning</span>
-            <span class="service-name">SCORM / xAPI Course Development</span>
-          </td>
-          <td><span class="service-desc">Custom eLearning module development using Articulate Storyline or Rise, delivered as SCORM 1.2/2004 or xAPI packages.</span></td>
-          <td>Varies</td>
-          <td><span class="price-tag">$110</span><span class="price-unit">Per hour</span></td>
-        </tr>
-        <tr>
-          <td>
-            <span class="service-cat cat-int">Integration</span>
-            <span class="service-name">SSO / Identity Setup</span>
-          </td>
-          <td><span class="service-desc">Configure SAML 2.0 or OIDC single sign-on with your identity provider (Azure AD, Okta, Google Workspace, etc.).</span></td>
-          <td>3–5 days</td>
-          <td><span class="price-tag">$850</span><span class="price-unit">Fixed fee</span></td>
-        </tr>
-        <tr>
-          <td>
-            <span class="service-cat cat-supp">Support</span>
-            <span class="service-name">Platform Health Audit</span>
-          </td>
-          <td><span class="service-desc">Comprehensive audit of your current LMS including performance, security, data integrity, and UX. Delivered as a written report with recommendations.</span></td>
-          <td>3–5 days</td>
-          <td><span class="price-tag">$1,200</span><span class="price-unit">Fixed fee</span></td>
-        </tr>
-        <tr>
-          <td>
-            <span class="service-cat cat-custom">Strategy</span>
-            <span class="service-name">L&D Strategy Consulting</span>
-          </td>
-          <td><span class="service-desc">Strategic consulting for learning program design, competency frameworks, content strategy, and ROI measurement planning.</span></td>
-          <td>Ongoing</td>
-          <td><span class="price-tag">$150</span><span class="price-unit">Per hour</span></td>
-        </tr>
-        <tr>
-          <td>
-            <span class="service-cat cat-mig">Migration</span>
-            <span class="service-name">Cross-Platform Migration</span>
-          </td>
-          <td><span class="service-desc">Move between any two of the three platforms (e.g. Moodle → Docebo or Canvas → Moodle) with full content, user, and history migration.</span></td>
-          <td>4–10 weeks</td>
-          <td><span class="price-price-tag price-custom">Custom quote</span></td>
-        </tr>
-      </tbody>
-    </table></div>
-    <p class="catalog-note"><strong>Note:</strong> These services apply across all three platforms. Hourly engagements billed in 1-hour increments. All prices in USD and exclude applicable taxes. Volume discounts available for multi-service engagements.</p>
-  </div>
-
-</section>
-
-<!-- SERVICES OVERVIEW -->
-<section class="services-section" id="services">
-  <div class="services-inner">
-    <div class="section-tag">What We Do</div>
-    <h2 class="section-title">A Full Spectrum of LMS Services</h2>
-    <p class="section-sub">From first implementation to ongoing optimization — we handle every stage of your LMS journey.</p>
-    <div class="services-cols">
-      <div class="service-group">
-        <h3>Implementation & Setup</h3>
-        <div class="service-item">
-          <div class="service-icon">🚀</div>
-          <div class="service-info">
-            <h4>New LMS Implementation</h4>
-            <p>End-to-end setup of your chosen platform including configuration, user roles, and branding.</p>
-          </div>
-        </div>
-        <div class="service-item">
-          <div class="service-icon">🔄</div>
-          <div class="service-info">
-            <h4>Platform Migration</h4>
-            <p>Seamless content, user, and data migration between platforms with zero learning disruption.</p>
-          </div>
-        </div>
-        <div class="service-item">
-          <div class="service-icon">🔗</div>
-          <div class="service-info">
-            <h4>Third-Party Integrations</h4>
-            <p>Connect your LMS to HR, CRM, video conferencing, and SSO systems.</p>
-          </div>
-        </div>
-      </div>
-      <div class="service-group">
-        <h3>Optimization & Support</h3>
-        <div class="service-item">
-          <div class="service-icon">🎨</div>
-          <div class="service-info">
-            <h4>Custom Development</h4>
-            <p>Bespoke plugins, themes, and features built to your exact requirements.</p>
-          </div>
-        </div>
-        <div class="service-item">
-          <div class="service-icon">📊</div>
-          <div class="service-info">
-            <h4>Analytics & Reporting</h4>
-            <p>Advanced dashboards and xAPI/LRS solutions to track learner performance.</p>
-          </div>
-        </div>
-        <div class="service-item">
-          <div class="service-icon">🛠</div>
-          <div class="service-info">
-            <h4>Managed Support Retainers</h4>
-            <p>Ongoing technical support, updates, and maintenance packages to keep things running.</p>
-          </div>
-        </div>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div><strong>SaaS-grade LMS operations</strong> for launch, migration, analytics, AI workflows, and learning enablement</div>
+      <div class="topbar-meta">
+        <span>Docebo</span>
+        <span>Canvas LMS</span>
+        <span>Moodle</span>
+        <span>L&D Set up </span>
+        <span> Enterprise learning teams</span>
       </div>
     </div>
   </div>
-</section>
 
-<!-- PROCESS -->
-<section class="process-section" id="process">
-  <div class="process-header">
-    <div class="section-tag">How It Works</div>
-    <h2 class="section-title">Our Proven Delivery Process</h2>
-    <p class="section-sub">A structured approach that gets your LMS live on time and on budget.</p>
+  <nav class="site-nav">
+    <div class="site-nav-inner">
+      <a href="#top" class="brand" aria-label="LearnAI For LMS home">
+        <img src="https://raw.githubusercontent.com/X-Spark/learnflowai/main/LOGO1.png" alt="LearnAI For LMS logo featuring blue and purple gradient design symbolizing modern learning technology" class="logo-img">
+        <span class="brand-copy">
+          <small>LearnAI</small>
+          <strong>For LMS</strong>
+        </span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle navigation">
+        &#9776;
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#solutions"><i data-lucide="layers-3"></i>Solutions</a></li>
+        <li><a href="#platforms"><i data-lucide="boxes"></i>Platforms</a></li>
+        <li><a href="#analytics"><i data-lucide="activity"></i>AI + Analytics</a></li>
+        <li><a href="#process"><i data-lucide="route"></i>Process</a></li>
+        <li><a href="#contact" class="cta-link"><i data-lucide="calendar-check"></i>Book Demo Call</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow"><i data-lucide="sparkles"></i>SaaS LMS delivery system</span>
+          <h1>Launch a learning platform that feels built for scale.</h1>
+          <p>
+            LearnAI For LMS turns Docebo, Canvas, Moodle, and enterprise learning stacks into clean, measurable SaaS-style experiences with faster rollout, sharper analytics, AI-assisted workflows, and adoption-ready operations.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact"><i data-lucide="rocket"></i>Plan Your Launch</a>
+            <a class="btn btn-secondary" href="#solutions"><i data-lucide="layout-dashboard"></i>View Capabilities</a>
+          </div>
+
+          <div class="hero-points">
+            <div class="point-card">
+              <i data-lucide="rocket"></i>
+              <strong>Launch Architecture</strong>
+              <span>Roles, journeys, catalogs, workflows, and admin foundations.</span>
+            </div>
+            <div class="point-card">
+              <i data-lucide="database"></i>
+              <strong>Data Migration</strong>
+              <span>Move content, users, records, and learning history with confidence.</span>
+            </div>
+            <div class="point-card">
+              <i data-lucide="trending-up"></i>
+              <strong>Revenue-Ready Ops</strong>
+              <span>Dashboards, governance, adoption, and continuous optimization.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-side reveal">
+          <div class="hero-visual">
+            <div class="visual-head">
+              <div class="dot-group" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <span class="visual-chip"><i data-lucide="activity"></i>Live learning operations</span>
+            </div>
+
+            <div class="hero-photo">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Analytics dashboard showing learning performance data on a laptop screen">
+              <div class="hero-photo-caption">
+                <strong>Learning data, workflows, and adoption in one motion</strong>
+                <span>Built for academies, customer education, universities, and enterprise enablement teams.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="analytics-card">
+            <span class="icon-badge"><i data-lucide="bot"></i></span>
+            <h3>AI workflows for LMS teams</h3>
+            <p>Add automation and insight where teams actually work: course creation, learner support, reporting, and operating cadence.</p>
+            <div class="chart">
+              <div class="chart-row">
+                <strong><span>Decision support</span><span>AI-ready</span></strong>
+                <div class="bar"><span style="width: 88%"></span></div>
+              </div>
+              <div class="chart-row">
+                <strong><span>Course ops acceleration</span><span>Faster build</span></strong>
+                <div class="bar"><span style="width: 76%"></span></div>
+              </div>
+              <div class="chart-row">
+                <strong><span>Workflow automation</span><span>Configured</span></strong>
+                <div class="bar"><span style="width: 92%"></span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mini-service-card">
+            <span class="icon-badge"><i data-lucide="list-checks"></i></span>
+            <h3>Implementation modules</h3>
+            <ul>
+              <li><span>Platform architecture</span><strong>Included</strong></li>
+              <li><span>Portal UX and brand system</span><strong>Included</strong></li>
+              <li><span>Content and user migration</span><strong>Available</strong></li>
+              <li><span>Admin onboarding</span><strong>Included</strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="trust">
+      <div class="trust-grid">
+        <div class="trust-item reveal">
+          <i data-lucide="package-check"></i>
+          <strong>Built like a product rollout</strong>
+          <span>Every launch is mapped around users, roles, permissions, activation paths, and operational readiness.</span>
+        </div>
+        <div class="trust-item reveal">
+          <i data-lucide="user-check"></i>
+          <strong>Designed for adoption</strong>
+          <span>Portals, learner journeys, certificates, automations, and dashboards match how your team operates.</span>
+        </div>
+        <div class="trust-item reveal">
+          <i data-lucide="database-backup"></i>
+          <strong>Migration without chaos</strong>
+          <span>Courses, completion history, users, and learning records are structured before go-live.</span>
+        </div>
+        <div class="trust-item reveal">
+          <i data-lucide="refresh-cw"></i>
+          <strong>Operations after launch</strong>
+          <span>Governance, analytics, adoption, and enablement keep the LMS useful after the first release.</span>
+        </div>
+      </div>
+    </div>
+
+    <section id="solutions">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow"><i data-lucide="blocks"></i>SaaS capabilities</span>
+          <h2>Everything your LMS needs to behave like a modern SaaS product.</h2>
+          <p>
+            Productized services for teams that need a polished learner experience, reliable data, faster operations, and a launch path that does not feel improvised.
+          </p>
+        </div>
+
+        <div class="solutions-grid">
+          <article class="solution-card reveal">
+            <div class="offer-top">
+              <div>
+                <div class="solution-icon"><i data-lucide="rocket"></i></div>
+                <h3>Platform architecture and launch</h3>
+              </div>
+              <div class="card-price" aria-label="Starting price 1200 dollars">
+                <strong>$1,200</strong>
+                <span>start</span>
+              </div>
+            </div>
+            <p>End-to-end setup for new LMS environments, including tenant configuration, domains, role models, learner journeys, navigation, reporting access, and launch readiness.</p>
+            <ul class="feature-list">
+              <li>Discovery workshops and launch blueprint</li>
+              <li>Portal structure, catalog logic, and access model</li>
+              <li>SSO, notifications, and go-live QA</li>
+            </ul>
+          </article>
+
+          <article class="solution-card reveal">
+            <div class="offer-top">
+              <div>
+                <div class="solution-icon"><i data-lucide="palette"></i></div>
+                <h3>Learner experience and brand system</h3>
+              </div>
+              <div class="card-price" aria-label="Starting price 900 dollars">
+                <strong>$900</strong>
+                <span>start</span>
+              </div>
+            </div>
+            <p>Give the learning experience a polished SaaS feel with custom themes, white-label touchpoints, learner dashboards, email styling, certificates, and user-focused navigation.</p>
+            <ul class="feature-list">
+              <li>Custom themes, homepage layouts, and learner portals</li>
+              <li>Certificate templates and brand-aligned experiences</li>
+              <li>Role-aware UX for learners, managers, and admins</li>
+            </ul>
+          </article>
+
+          <article class="solution-card reveal">
+            <div class="offer-top">
+              <div>
+                <div class="solution-icon"><i data-lucide="settings-2"></i></div>
+                <h3>Learning operations and enablement</h3>
+              </div>
+              <div class="card-price" aria-label="Starting price 1000 dollars">
+                <strong>$1,000</strong>
+                <span>start</span>
+              </div>
+            </div>
+            <p>Turn the LMS into an operating system for learning with admin setup, governance, adoption planning, reporting strategy, content organization, and team enablement.</p>
+            <ul class="feature-list">
+              <li>Learning governance and admin operating model</li>
+              <li>Program architecture, pathways, and audience segmentation</li>
+              <li>Training for admins, faculty, trainers, and managers</li>
+            </ul>
+          </article>
+
+          <article class="solution-card reveal">
+            <div class="offer-top">
+              <div>
+                <div class="solution-icon"><i data-lucide="database-backup"></i></div>
+                <h3>Migration and modernization</h3>
+              </div>
+              <div class="card-price" aria-label="Starting price 1500 dollars">
+                <strong>$1,500</strong>
+                <span>start</span>
+              </div>
+            </div>
+            <p>Move from legacy LMS tools or scattered learning systems into a cleaner platform while preserving content quality, user data, enrollment rules, and reporting continuity.</p>
+            <ul class="feature-list">
+              <li>Content, user, enrollment, and completion migration</li>
+              <li>SCORM, xAPI, media, and assessment transfer planning</li>
+              <li>Testing, validation, and phased launch support</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="offer-strip">
+          <div class="offer-card primary-offer reveal">
+            <span class="eyebrow"><i data-lucide="package"></i>Productized rollout</span>
+            <h3>LearnAI LMS Launch System</h3>
+            <p>
+              A focused rollout package for teams that want strategy, configuration, migration planning, analytics, AI workflows, and admin onboarding handled as one connected launch.
+            </p>
+            <div class="offer-price">
+              <strong>$3,500+</strong>
+              <span>project based</span>
+            </div>
+            <ul class="feature-list">
+              <li>Platform discovery and launch blueprint</li>
+              <li>Configuration, brand system, and workflow setup</li>
+              <li>Migration planning or execution support</li>
+              <li>AI and analytics baseline for faster decisions</li>
+              <li>Launch QA, admin onboarding, and adoption handoff</li>
+            </ul>
+            <p class="offer-meta">Final fee depends on platform, content volume, integrations, and migration depth.</p>
+          </div>
+
+          <div class="comparison-card reveal">
+            <span class="icon-badge"><i data-lucide="clipboard-list"></i></span>
+            <h3>Built for SaaS-style buyers</h3>
+            <p>A clear view of fit, systems, integrations, and the outcomes leadership teams usually ask about.</p>
+            <table>
+              <tr>
+                <td>Best fit</td>
+                <td>Training businesses, higher education, internal L&amp;D, customer education, onboarding academies</td>
+              </tr>
+              <tr>
+                <td>Platforms</td>
+                <td>Docebo, Canvas LMS, Moodle, and selected custom enterprise learning stacks</td>
+              </tr>
+              <tr>
+                <td>Integrations</td>
+                <td>SSO, HRIS, CRM, webinar tools, eCommerce, email automation, LTI, and analytics systems</td>
+              </tr>
+              <tr>
+                <td>Outcomes</td>
+                <td>Cleaner operations, faster content velocity, better analytics, stronger adoption, and measurable ROI</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="platforms">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow"><i data-lucide="boxes"></i>Platform stack</span>
+          <h2>Docebo, Canvas, and Moodle implementation with SaaS-level polish.</h2>
+          <p>
+            Configure the platform you already use, or choose the right one with a roadmap that considers data, integrations, adoption, and long-term maintainability.
+          </p>
+        </div>
+
+        <div class="platform-grid">
+          <article class="platform-card reveal">
+            <span class="platform-badge badge-enterprise">Enterprise</span>
+            <div class="platform-icon"><i data-lucide="building-2"></i></div>
+            <h3>Docebo launch and optimization</h3>
+            <p>For enterprise teams building scalable customer education, partner training, onboarding, and enablement programs.</p>
+            <ul class="platform-list">
+              <li>Tenant setup, brand system, catalog design, and automation rules</li>
+              <li>HRIS and CRM integration planning for Salesforce, Workday, and related systems</li>
+              <li>Learning paths, analytics dashboards, and admin operating model</li>
+            </ul>
+          </article>
+
+          <article class="platform-card reveal">
+            <span class="platform-badge badge-academic">Academic</span>
+            <div class="platform-icon"><i data-lucide="graduation-cap"></i></div>
+            <h3>Canvas setup and adoption systems</h3>
+            <p>For institutions and training teams that need a reliable learning environment with clear course delivery and role-based administration.</p>
+            <ul class="platform-list">
+              <li>SIS and LTI integration planning for academic or program workflows</li>
+              <li>Theme customization, course structure, and navigation refinement</li>
+              <li>Faculty onboarding, course design support, and adoption programs</li>
+            </ul>
+          </article>
+
+          <article class="platform-card reveal">
+            <span class="platform-badge badge-open">Open source</span>
+            <div class="platform-icon"><i data-lucide="wrench"></i></div>
+            <h3>Moodle migration and productized support</h3>
+            <p>For organizations that need flexibility, control, custom plugins, and a maintainable open-source learning platform.</p>
+            <ul class="platform-list">
+              <li>Moodle installation, theme work, and plugin compatibility planning</li>
+              <li>Version upgrades, migration, performance tuning, and hardening</li>
+              <li>xAPI, LRS, reporting, and long-term maintenance support</li>
+            </ul>
+          </article>
+
+          <article class="platform-card reveal">
+            <div class="platform-icon"><i data-lucide="compass"></i></div>
+            <h3>Cross-platform LMS strategy</h3>
+            <p>For teams deciding what to launch, upgrade, consolidate, or automate before committing budget to a major platform change.</p>
+            <ul class="platform-list">
+              <li>Needs assessment and recommendation mapping</li>
+              <li>Current-state audit across UX, security, data, and operations</li>
+              <li>Roadmap for implementation, migration, and reporting maturity</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="analytics-section" id="analytics">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow"><i data-lucide="brain-circuit"></i>AI + analytics layer</span>
+          <h2>Turn learning data into decisions, workflows, and measurable growth.</h2>
+          <p>
+            AI should improve the operating layer of your LMS, not sit beside it. We help teams add practical automation, assistant-led course production, smarter reporting, and decision support that improves speed, quality, and ROI.
+          </p>
+        </div>
+
+        <div class="analytics-layout">
+          <div class="analytics-panel reveal">
+            <h3 style="font-size: 1.45rem; margin-bottom: 0.7rem;">Where the AI layer creates leverage</h3>
+            :
+            <div class="analytics-metrics">
+              <div class="metric">
+                <i data-lucide="brain-circuit"></i>
+                <strong>Decision intelligence</strong>
+                <span>Surface patterns, bottlenecks, and opportunities so learning leaders can act faster with more confidence.</span>
+              </div>
+              <div class="metric">
+                <i data-lucide="file-text"></i>
+                <strong>Content velocity</strong>
+                <span>Speed up outlines, assessments, learning paths, summaries, and content production with assistant-led workflows.</span>
+              </div>
+              <div class="metric">
+                <i data-lucide="workflow"></i>
+                <strong>Workflow automation</strong>
+                <span>Reduce manual effort across content organization, learner support, admin workflows, and repeatable LMS tasks.</span>
+              </div>
+              <div class="metric">
+                <i data-lucide="trending-up"></i>
+                <strong>Training ROI</strong>
+                <span>Improve speed, consistency, learner experience, and team output so training investments produce measurable returns.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="analytics-photo reveal">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=85" alt="Team collaborating on learning analytics and AI workflow dashboard">
+            <div class="overlay">
+              <strong>Analytics should drive action</strong>
+              <span>Dashboards, automation, and AI workflows work best when they connect directly to the team's weekly operating rhythm.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow"><i data-lucide="route"></i>Launch workflow</span>
+          <h2>A clean operating path from discovery to activation.</h2>
+          <p>
+            A structured delivery model that gives stakeholders visibility, reduces rework, and keeps the platform moving toward launch.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <article class="process-card reveal">
+            <div class="process-num"><i data-lucide="map"></i></div>
+            <h3>Map</h3>
+            <p>We review audience groups, business goals, learning workflows, platform constraints, content state, reporting needs, and migration dependencies.</p>
+          </article>
+
+          <article class="process-card reveal">
+            <div class="process-num"><i data-lucide="sliders-horizontal"></i></div>
+            <h3>Configure</h3>
+            <p>We shape learner journeys, roles, navigation, branding, integrations, content architecture, automations, and admin permissions.</p>
+          </article>
+
+          <article class="process-card reveal">
+            <div class="process-num"><i data-lucide="database"></i></div>
+            <h3>Migrate</h3>
+            <p>We move or restructure content, connect systems, validate records, and prepare reporting dashboards for launch.</p>
+          </article>
+
+          <article class="process-card reveal">
+            <div class="process-num"><i data-lucide="badge-check"></i></div>
+            <h3>Activate</h3>
+            <p>We support go-live, admin onboarding, post-launch fixes, adoption tracking, and next-stage improvements for AI and scale.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow"><i data-lucide="circle-help"></i>Buyer questions</span>
+          <h2>Clarity before you commit budget, time, and internal momentum.</h2>
+          <p>
+            Straight answers for teams evaluating a SaaS-grade LMS rollout, migration, or analytics improvement project.
+          </p>
+        </div>
+
+        <div class="faq-grid">
+          <article class="faq-card reveal">
+            <i data-lucide="search"></i>
+            <h3>Can you help us choose the right LMS?</h3>
+            <p>Yes. Discovery can compare platforms by audience type, admin complexity, integrations, analytics needs, and long-term operating cost.</p>
+          </article>
+
+          <article class="faq-card reveal">
+            <i data-lucide="settings"></i>
+            <h3>Do you only configure the platform?</h3>
+            <p>No. Platform delivery works best when audience structure, reporting logic, governance, enablement, and adoption planning are handled together.</p>
+          </article>
+
+          <article class="faq-card reveal">
+            <i data-lucide="database-backup"></i>
+            <h3>Can legacy content and learner history move cleanly?</h3>
+            <p>Yes. The method depends on the source platform, content standards, and data quality, but migration planning is a core part of the work.</p>
+          </article>
+
+          <article class="faq-card reveal">
+            <i data-lucide="bot"></i>
+            <h3>Can AI be added without rebuilding everything?</h3>
+            <p>Often yes. AI can be introduced through workflow improvements, assistant-led content production, smarter reporting, and selective automation without a full rebuild.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-grid">
+          <aside class="contact-card reveal">
+            <span class="eyebrow"><i data-lucide="message-square"></i>Launch consult</span>
+            <i data-lucide="calendar-check"></i>
+            <h3>Map your LMS launch, migration, or optimization path.</h3>
+            <p>
+              Share your current learning stack, business goals, and blockers so we can recommend the right rollout path.
+            </p>
+            <ul class="contact-points">
+              <li>New LMS setup for customer, partner, faculty, or employee learning</li>
+              <li>Migration from a legacy LMS or disconnected learning stack</li>
+              <li>Brand system, analytics, AI workflows, and admin automation</li>
+              <li>Enablement, adoption support, and operating model cleanup</li>
+            </ul>
+          </aside>
+
+          <div class="contact-form reveal">
+            <i data-lucide="send"></i>
+            <h3>Request a launch consult</h3>
+            <p>Tell us what you are building and where the platform needs to perform better.</p>
+            <form id="leadForm">
+              <div class="form-grid">
+                <label>
+                  Full name
+                  <input type="text" name="name" placeholder="Your name" required>
+                </label>
+                <label>
+                  Work email
+                  <input type="email" name="email" placeholder="you@company.com" required>
+                </label>
+              </div>
+
+              <div class="form-grid">
+                <label>
+                  Organization type
+                  <select name="organization" required>
+                    <option value="">Select one</option>
+                    <option>Corporate L&amp;D team</option>
+                    <option>Training company</option>
+                    <option>Higher education</option>
+                    <option>Coaching or academy business</option>
+                    <option>Customer education team</option>
+                  </select>
+                </label>
+                <label>
+                  Project focus
+                  <select name="focus" required>
+                    <option value="">Select one</option>
+                    <option>Implementation</option>
+                    <option>Customization</option>
+                    <option>Migration</option>
+                    <option>L&amp;D setup</option>
+                    <option>AI implementation</option>
+                  </select>
+                </label>
+              </div>
+
+              <div class="form-grid">
+                <label>
+                  Platform
+                  <select name="platform" required>
+                    <option value="">Select one</option>
+                    <option>Docebo</option>
+                    <option>Canvas LMS</option>
+                    <option>Moodle</option>
+                    <option>Need recommendation</option>
+                  </select>
+                </label>
+                <label>
+                  Timeline
+                  <select name="timeline" required>
+                    <option value="">Select one</option>
+                    <option>Immediately</option>
+                    <option>Within 30 days</option>
+                    <option>Within 90 days</option>
+                    <option>Planning stage</option>
+                  </select>
+                </label>
+              </div>
+
+              <label>
+                Project details
+                <textarea name="message" placeholder="Share your current LMS, audience, launch goals, migration needs, analytics expectations, or workflow blockers." required></textarea>
+              </label>
+
+              <button class="btn btn-primary" type="submit"><i data-lucide="send"></i>Send Launch Request</button>
+              <div class="success-message" id="successMessage">Thanks. Your launch request has been submitted. We'll be in touch shortly.</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="footer-cta">
+    <div class="footer-band reveal">
+      <div>
+        <h2>Ready to make your LMS feel like a real SaaS product?</h2>
+        <p>Bring together platform setup, migration, analytics, AI workflows, and adoption support in one clean rollout.</p>
+      </div>
+      <a class="btn btn-secondary" href="#contact"><i data-lucide="arrow-right"></i>Plan the Rollout</a>
+    </div>
   </div>
-  <div class="steps">
-    <div class="step"><div class="step-num">01</div><div class="step-icon">🔍</div><h4>Discovery</h4><p>We audit your current setup, goals, and learner needs to scope the right solution.</p></div>
-    <div class="step"><div class="step-num">02</div><div class="step-icon">📐</div><h4>Architecture</h4><p>We design the platform structure, integrations, and content strategy.</p></div>
-    <div class="step"><div class="step-num">03</div><div class="step-icon">⚙️</div><h4>Build & Configure</h4><p>Implementation, customization, and integration work begins in a staging environment.</p></div>
-    <div class="step"><div class="step-num">04</div><div class="step-icon">✅</div><h4>Test & Launch</h4><p>Rigorous QA, UAT with your team, then a confident go-live deployment.</p></div>
-    <div class="step"><div class="step-num">05</div><div class="step-icon">📈</div><h4>Grow & Optimize</h4><p>Ongoing support, training, and performance reviews to maximize ROI.</p></div>
-  </div>
-</section>
 
-<!-- CTA -->
-<div class="cta-banner" id="contact">
-  <h2>Ready to Transform Your Learning Experience?</h2>
-  <p>Get a free consultation and platform recommendation tailored to your organization.</p>
-  <a href="mailto:hello@lmscloud.com" class="btn-white">Book a Free Consultation</a>
-</div>
+  <footer>
+    <div class="footer-shell">
+      <div class="footer-grid">
+        <div class="footer-panel reveal">
+          <div class="footer-brand">
+            <img src="./LOGO.png" alt="LearnAI For LMS" class="footer-logo">
+            <div class="footer-brand-copy">
+              <strong>LearnAI For LMS</strong>
+              <span>SaaS LMS Partner</span>
+            </div>
+          </div>
+          <p class="footer-intro">SaaS-grade implementation, migration, reporting, AI workflows, and learning operations support for ambitious training and L&amp;D teams.</p>
+        </div>
 
-<!-- FOOTER -->
-<footer>
-  <p>© 2025 <span>LearnFlow AI</span> · Docebo · Canvas · Moodle Specialists · All prices in USD</p>
-</footer>
+        <div class="footer-panel reveal">
+          <h3 class="footer-title">Explore</h3>
+          <ul class="footer-links">
+            <li><a href="#solutions">Solutions</a></li>
+            <li><a href="#platforms">Platforms</a></li>
+            <li><a href="#analytics">AI + Analytics</a></li>
+            <li><a href="#contact">Launch Consult</a></li>
+          </ul>
+        </div>
 
-<script>
-  function showTab(platform, btn) {
-    document.querySelectorAll('.catalog-panel').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.getElementById('tab-' + platform).classList.add('active');
-    btn.classList.add('active');
-  }
+        <div class="footer-panel reveal">
+          <h3 class="footer-title">Platforms</h3>
+          <ul class="footer-platforms">
+            <li><span>Do</span> Docebo launch and optimization</li>
+            <li><span>Ca</span> Canvas setup and adoption systems</li>
+            <li><span>Mo</span> Moodle migration and productized support</li>
+          </ul>
+        </div>
 
-function toggleMenu(){
-document.getElementById("navMenu").classList.toggle("active");
-}
-</script>
+        <div class="footer-panel reveal">
+          <h3 class="footer-title">Why teams choose us</h3>
+          <ul class="footer-metrics">
+            <li><strong>Productized delivery</strong> One partner for planning, build, migration, analytics, and launch support.</li>
+            <li><strong>SaaS-style experience</strong> Cleaner UX, clearer dashboards, and stronger learner activation.</li>
+            <li><strong>Platform continuity</strong> Docebo, Canvas, and Moodle expertise stays central.</li>
+          </ul>
+        </div>
+      </div>
 
+      <div class="footer-bottom">
+        <p>&copy; 2026 LearnAI For LMS. SaaS-grade LMS implementation, migration, customization, analytics, L&amp;D setup, and AI workflows.</p>
+        <nav aria-label="Footer navigation">
+          <a href="#top">Back to top</a>
+          <a href="#platforms">Platform stack</a>
+          <a href="#contact">Book a launch consult</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    const leadForm = document.getElementById("leadForm");
+    const successMessage = document.getElementById("successMessage");
+
+    menuToggle.addEventListener("click", () => {
+      const open = navLinks.classList.toggle("show");
+      menuToggle.setAttribute("aria-expanded", String(open));
+    });
+
+    document.querySelectorAll('#navLinks a[href^="#"]').forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("show");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    leadForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      successMessage.classList.add("show");
+      leadForm.reset();
+      successMessage.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+
+    window.addEventListener("load", () => {
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+    });
+
+    const revealItems = document.querySelectorAll(".reveal");
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
+
+    revealItems.forEach((item) => revealObserver.observe(item));
+  </script>
 </body>
 </html>
